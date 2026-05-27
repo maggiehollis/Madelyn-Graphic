@@ -1,0 +1,3759 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_e0eaae9337217fc59dba8b2bb4608a0b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="
+position: fixed; 
+bottom: 30px; left: 30px; width: 265px; z-index:9999; 
+background-color: white; padding: 12px; border: 2px solid #bbb; 
+border-radius: 8px; font-family: Arial, sans-serif; font-size: 14px;">
+  <div style="font-weight: 700; margin-bottom: 8px;">Map Key</div>
+  <div><span style="color: blue; font-size: 20px;">●</span> ABBY source list</div>
+  <div><span style="color: green; font-size: 20px;">●</span> MC source list</div>
+  <div><span style="color: red; font-size: 20px;">●</span> VV source list</div>
+  <div><span style="color: purple; font-size: 20px;">★</span> Confirmed partners</div>
+</div>
+    
+<div style="
+position: fixed; top: 15px; left: 50%; transform: translateX(-50%);
+z-index:9999; background-color:white; padding:10px 16px; border:1px solid #ccc; 
+border-radius:8px; font-family:Arial, sans-serif; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
+  <div style="font-size:18px; font-weight:700;">Organization & Confirmed Partner Map</div>
+  <div style="font-size:12px;">ABBY, MC, and VV are source lists. Purple stars are confirmed partners.</div>
+</div>
+    
+            <div class="folium-map" id="map_e0eaae9337217fc59dba8b2bb4608a0b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_e0eaae9337217fc59dba8b2bb4608a0b = L.map(
+                "map_e0eaae9337217fc59dba8b2bb4608a0b",
+                {
+                    center: [35.0, 5.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 2,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a074a371e011d4bcc26cb1bdb8ab4e56 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_a074a371e011d4bcc26cb1bdb8ab4e56.addTo(map_e0eaae9337217fc59dba8b2bb4608a0b);
+        
+    
+            var feature_group_580e15f293b1726964623e67e9706a43 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_3082ba862e05022353e1a8f443afd5af = L.circleMarker(
+                [41.9028, 12.4964],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_9b540b897833b77e86cbd351b3b90d20 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_703f19f6fccd40d91bc96946ad47a53b = $(`<div id="html_703f19f6fccd40d91bc96946ad47a53b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Bet Hillel Reform Jewish Community</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Rome</div>       <div><b>Mapped as:</b> Rome, Italy</div>     </div>     </div>`)[0];
+                popup_9b540b897833b77e86cbd351b3b90d20.setContent(html_703f19f6fccd40d91bc96946ad47a53b);
+            
+        
+
+        circle_marker_3082ba862e05022353e1a8f443afd5af.bindPopup(popup_9b540b897833b77e86cbd351b3b90d20)
+        ;
+
+        
+    
+    
+            circle_marker_3082ba862e05022353e1a8f443afd5af.bindTooltip(
+                `<div>
+                     Bet Hillel Reform Jewish Community (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_cbce30953b4b7a47d85ce4efca05e270 = L.circleMarker(
+                [52.52, 13.405],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_5cd694c2dab2b33f39134aeaf43503d2 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_cc07b8af47cf78a5b31bb41deba42de6 = $(`<div id="html_cc07b8af47cf78a5b31bb41deba42de6" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Better Politics</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Germany</div>       <div><b>City:</b> Berlin</div>       <div><b>Mapped as:</b> Berlin, Germany</div>     </div>     </div>`)[0];
+                popup_5cd694c2dab2b33f39134aeaf43503d2.setContent(html_cc07b8af47cf78a5b31bb41deba42de6);
+            
+        
+
+        circle_marker_cbce30953b4b7a47d85ce4efca05e270.bindPopup(popup_5cd694c2dab2b33f39134aeaf43503d2)
+        ;
+
+        
+    
+    
+            circle_marker_cbce30953b4b7a47d85ce4efca05e270.bindTooltip(
+                `<div>
+                     Better Politics (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_fddf56c8967017810921c837a37ba9eb = L.circleMarker(
+                [51.5074, -0.1278],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_8a8e1040f2c6d725933ce47b73d9dc09 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_c0bfb7fc1790d6a379b70d8a0e5207d3 = $(`<div id="html_c0bfb7fc1790d6a379b70d8a0e5207d3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Canaan Project</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> United Kingdom</div>       <div><b>City:</b> London</div>       <div><b>Mapped as:</b> London, United Kingdom</div>     </div>     </div>`)[0];
+                popup_8a8e1040f2c6d725933ce47b73d9dc09.setContent(html_c0bfb7fc1790d6a379b70d8a0e5207d3);
+            
+        
+
+        circle_marker_fddf56c8967017810921c837a37ba9eb.bindPopup(popup_8a8e1040f2c6d725933ce47b73d9dc09)
+        ;
+
+        
+    
+    
+            circle_marker_fddf56c8967017810921c837a37ba9eb.bindTooltip(
+                `<div>
+                     Canaan Project (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8bb00ae19c34dfd94d26114df086ea6c = L.circleMarker(
+                [-34.6037, -58.3816],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_de21803fcc6bf7d6400f0d1c4ab05a49 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_dfcaf7ff6ca39106873cbfc55e9f2342 = $(`<div id="html_dfcaf7ff6ca39106873cbfc55e9f2342" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Centro Ana Frank Argentina for Latin America</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Argentina</div>       <div><b>City:</b> Buenos Aires</div>       <div><b>Mapped as:</b> Buenos Aires, Argentina</div>     </div>     </div>`)[0];
+                popup_de21803fcc6bf7d6400f0d1c4ab05a49.setContent(html_dfcaf7ff6ca39106873cbfc55e9f2342);
+            
+        
+
+        circle_marker_8bb00ae19c34dfd94d26114df086ea6c.bindPopup(popup_de21803fcc6bf7d6400f0d1c4ab05a49)
+        ;
+
+        
+    
+    
+            circle_marker_8bb00ae19c34dfd94d26114df086ea6c.bindTooltip(
+                `<div>
+                     Centro Ana Frank Argentina for Latin America (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7dfa92fabc98175e2e3236c58152a7de = L.circleMarker(
+                [41.937799999999996, 12.4964],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_38ee2f837ae6a6f2dc7e00c7950812b3 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_96c60bd5225813916d2f780504c58ed4 = $(`<div id="html_96c60bd5225813916d2f780504c58ed4" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">CGIL Italy</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Rome</div>       <div><b>Mapped as:</b> Rome, Italy</div>     </div>     </div>`)[0];
+                popup_38ee2f837ae6a6f2dc7e00c7950812b3.setContent(html_96c60bd5225813916d2f780504c58ed4);
+            
+        
+
+        circle_marker_7dfa92fabc98175e2e3236c58152a7de.bindPopup(popup_38ee2f837ae6a6f2dc7e00c7950812b3)
+        ;
+
+        
+    
+    
+            circle_marker_7dfa92fabc98175e2e3236c58152a7de.bindTooltip(
+                `<div>
+                     CGIL Italy (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_39d370c5473c563c5516fd0b47f55853 = L.circleMarker(
+                [41.9728, 12.4964],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_9346154596c9c3907a9895386fcb44b7 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_d39f0f16cf8872edd8df3e4865c5e0b0 = $(`<div id="html_d39f0f16cf8872edd8df3e4865c5e0b0" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">CIPAX, Committee for Monte Verde</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Rome</div>       <div><b>Mapped as:</b> Rome, Italy</div>     </div>     </div>`)[0];
+                popup_9346154596c9c3907a9895386fcb44b7.setContent(html_d39f0f16cf8872edd8df3e4865c5e0b0);
+            
+        
+
+        circle_marker_39d370c5473c563c5516fd0b47f55853.bindPopup(popup_9346154596c9c3907a9895386fcb44b7)
+        ;
+
+        
+    
+    
+            circle_marker_39d370c5473c563c5516fd0b47f55853.bindTooltip(
+                `<div>
+                     CIPAX, Committee for Monte Verde (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_746b083aed0b94db85f21bb9957f1098 = L.circleMarker(
+                [43.7696, 11.2558],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_fd49608046644f93b3817d5dc61e275c = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_00ca8204bfaaa95e865c709a646a0b6c = $(`<div id="html_00ca8204bfaaa95e865c709a646a0b6c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Donne Insieme per la Pace (Florence)</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Florence</div>       <div><b>Mapped as:</b> Florence, Italy</div>     </div>     </div>`)[0];
+                popup_fd49608046644f93b3817d5dc61e275c.setContent(html_00ca8204bfaaa95e865c709a646a0b6c);
+            
+        
+
+        circle_marker_746b083aed0b94db85f21bb9957f1098.bindPopup(popup_fd49608046644f93b3817d5dc61e275c)
+        ;
+
+        
+    
+    
+            circle_marker_746b083aed0b94db85f21bb9957f1098.bindTooltip(
+                `<div>
+                     Donne Insieme per la Pace (Florence) (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ba995d64c296617f055b4215ed3931bb = L.circleMarker(
+                [51.1657, 10.4515],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_9ffa12f4f17c66b59b944f59d751ea18 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_d25196187cb2db4815fe1ad54a2be764 = $(`<div id="html_d25196187cb2db4815fe1ad54a2be764" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">F.A.M. - Frauengruppe gegen Sexismus und Rassismus</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Germany</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Germany</div>     </div>     </div>`)[0];
+                popup_9ffa12f4f17c66b59b944f59d751ea18.setContent(html_d25196187cb2db4815fe1ad54a2be764);
+            
+        
+
+        circle_marker_ba995d64c296617f055b4215ed3931bb.bindPopup(popup_9ffa12f4f17c66b59b944f59d751ea18)
+        ;
+
+        
+    
+    
+            circle_marker_ba995d64c296617f055b4215ed3931bb.bindTooltip(
+                `<div>
+                     F.A.M. - Frauengruppe gegen Sexismus und Rassismus (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d097131a19ef44a73f251f67cb3b1aae = L.circleMarker(
+                [60.1699, 24.9384],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_6a7a9d4fed8a7d57bbbc3db3d55e00cd = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_a6682de131423003313e5322f6cddcb5 = $(`<div id="html_a6682de131423003313e5322f6cddcb5" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">FELM - Finnish Evangelical Lutheran Mission</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Finland</div>       <div><b>City:</b> Helsinki</div>       <div><b>Mapped as:</b> Helsinki, Finland</div>     </div>     </div>`)[0];
+                popup_6a7a9d4fed8a7d57bbbc3db3d55e00cd.setContent(html_a6682de131423003313e5322f6cddcb5);
+            
+        
+
+        circle_marker_d097131a19ef44a73f251f67cb3b1aae.bindPopup(popup_6a7a9d4fed8a7d57bbbc3db3d55e00cd)
+        ;
+
+        
+    
+    
+            circle_marker_d097131a19ef44a73f251f67cb3b1aae.bindTooltip(
+                `<div>
+                     FELM - Finnish Evangelical Lutheran Mission (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d2307284d5f23d11beaced47809ccad7 = L.circleMarker(
+                [45.5017, -73.5673],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_87405db1c43d01abc20ea699e1626bdd = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_b76ee248fb0aa3e1edae6532e0394562 = $(`<div id="html_b76ee248fb0aa3e1edae6532e0394562" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Flame of Hope</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Canada</div>       <div><b>City:</b> Montreal</div>       <div><b>Mapped as:</b> Montreal, Canada</div>     </div>     </div>`)[0];
+                popup_87405db1c43d01abc20ea699e1626bdd.setContent(html_b76ee248fb0aa3e1edae6532e0394562);
+            
+        
+
+        circle_marker_d2307284d5f23d11beaced47809ccad7.bindPopup(popup_87405db1c43d01abc20ea699e1626bdd)
+        ;
+
+        
+    
+    
+            circle_marker_d2307284d5f23d11beaced47809ccad7.bindTooltip(
+                `<div>
+                     Flame of Hope (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_78ec21bbf50571732ce7d9438d0efb85 = L.circleMarker(
+                [46.8182, 8.2275],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_cfbfad37b25e892edd24199c98ab7bc1 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_7f7f6ec9b51e4bcbda91ff8886f4fc12 = $(`<div id="html_7f7f6ec9b51e4bcbda91ff8886f4fc12" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Frauen für den Frieden Schweiz</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Switzerland</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Switzerland</div>     </div>     </div>`)[0];
+                popup_cfbfad37b25e892edd24199c98ab7bc1.setContent(html_7f7f6ec9b51e4bcbda91ff8886f4fc12);
+            
+        
+
+        circle_marker_78ec21bbf50571732ce7d9438d0efb85.bindPopup(popup_cfbfad37b25e892edd24199c98ab7bc1)
+        ;
+
+        
+    
+    
+            circle_marker_78ec21bbf50571732ce7d9438d0efb85.bindTooltip(
+                `<div>
+                     Frauen für den Frieden Schweiz (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a18e75707a40b4c1d609fb735974693e = L.circleMarker(
+                [41.8719, 12.5674],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_cccfb7cfc2d107e63b4b00f90bf9b640 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_060543885d6a052749502a79a1eb1fc6 = $(`<div id="html_060543885d6a052749502a79a1eb1fc6" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">GLAM – Italian Federation of Protestant Churches</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Italy</div>     </div>     </div>`)[0];
+                popup_cccfb7cfc2d107e63b4b00f90bf9b640.setContent(html_060543885d6a052749502a79a1eb1fc6);
+            
+        
+
+        circle_marker_a18e75707a40b4c1d609fb735974693e.bindPopup(popup_cccfb7cfc2d107e63b4b00f90bf9b640)
+        ;
+
+        
+    
+    
+            circle_marker_a18e75707a40b4c1d609fb735974693e.bindTooltip(
+                `<div>
+                     GLAM – Italian Federation of Protestant Churches (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8a6b4e55b71d926f24a93b03624dde66 = L.circleMarker(
+                [42.3601, -71.0589],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_356dafc83522a89052f4532ccf9830c7 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_adc084138d0d0ba8756288b54268c825 = $(`<div id="html_adc084138d0d0ba8756288b54268c825" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Global Citizens Circle</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> United States</div>       <div><b>City:</b> Boston</div>       <div><b>Mapped as:</b> Boston, United States</div>     </div>     </div>`)[0];
+                popup_356dafc83522a89052f4532ccf9830c7.setContent(html_adc084138d0d0ba8756288b54268c825);
+            
+        
+
+        circle_marker_8a6b4e55b71d926f24a93b03624dde66.bindPopup(popup_356dafc83522a89052f4532ccf9830c7)
+        ;
+
+        
+    
+    
+            circle_marker_8a6b4e55b71d926f24a93b03624dde66.bindTooltip(
+                `<div>
+                     Global Citizens Circle (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_6852ce1824eb9a08cb0f52ae68c83764 = L.circleMarker(
+                [39.8283, -98.5795],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_cfa4882b85f8051ce9360bf12fe7175e = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_289c6277891fe1b94bf373065ca2adc5 = $(`<div id="html_289c6277891fe1b94bf373065ca2adc5" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Global Fund for Women</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> United States</div>       <div><b>City:</b> San Francisco</div>       <div><b>Mapped as:</b> San Francisco, United States</div>     </div>     </div>`)[0];
+                popup_cfa4882b85f8051ce9360bf12fe7175e.setContent(html_289c6277891fe1b94bf373065ca2adc5);
+            
+        
+
+        circle_marker_6852ce1824eb9a08cb0f52ae68c83764.bindPopup(popup_cfa4882b85f8051ce9360bf12fe7175e)
+        ;
+
+        
+    
+    
+            circle_marker_6852ce1824eb9a08cb0f52ae68c83764.bindTooltip(
+                `<div>
+                     Global Fund for Women (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a38d40123f78525d033512d2e097c858 = L.circleMarker(
+                [19.4326, -99.1332],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_82c764b0a03637be0b224ee2a0062f84 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_fb7fa81d00db8611672d62623575abc2 = $(`<div id="html_fb7fa81d00db8611672d62623575abc2" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">International Council of Jewish Women</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Mexico</div>       <div><b>City:</b> Mexico City</div>       <div><b>Mapped as:</b> Mexico City, Mexico</div>     </div>     </div>`)[0];
+                popup_82c764b0a03637be0b224ee2a0062f84.setContent(html_fb7fa81d00db8611672d62623575abc2);
+            
+        
+
+        circle_marker_a38d40123f78525d033512d2e097c858.bindPopup(popup_82c764b0a03637be0b224ee2a0062f84)
+        ;
+
+        
+    
+    
+            circle_marker_a38d40123f78525d033512d2e097c858.bindTooltip(
+                `<div>
+                     International Council of Jewish Women (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_48dd330d423201509f5a63f42983609a = L.circleMarker(
+                [42.007799999999996, 12.4964],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_40ed2ff113b653bd283a54c00afe3053 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_c8be5f62fd6d29a96c6d883d50b42801 = $(`<div id="html_c8be5f62fd6d29a96c6d883d50b42801" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Interreligious Center for Peace (CIPAX)</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Rome</div>       <div><b>Mapped as:</b> Rome, Italy</div>     </div>     </div>`)[0];
+                popup_40ed2ff113b653bd283a54c00afe3053.setContent(html_c8be5f62fd6d29a96c6d883d50b42801);
+            
+        
+
+        circle_marker_48dd330d423201509f5a63f42983609a.bindPopup(popup_40ed2ff113b653bd283a54c00afe3053)
+        ;
+
+        
+    
+    
+            circle_marker_48dd330d423201509f5a63f42983609a.bindTooltip(
+                `<div>
+                     Interreligious Center for Peace (CIPAX) (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ee194ccd4c02ec2450621cf606979272 = L.circleMarker(
+                [31.7683, 35.2137],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_9ff6309e1b61ed62a46dfaa7922968da = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_e33fc51482bdb3068bfe19d9813bb7b0 = $(`<div id="html_e33fc51482bdb3068bfe19d9813bb7b0" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">It&#x27;s Time Solidarity Peace Walk</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Israel/Palestine</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Israel/Palestine</div>     </div>     </div>`)[0];
+                popup_9ff6309e1b61ed62a46dfaa7922968da.setContent(html_e33fc51482bdb3068bfe19d9813bb7b0);
+            
+        
+
+        circle_marker_ee194ccd4c02ec2450621cf606979272.bindPopup(popup_9ff6309e1b61ed62a46dfaa7922968da)
+        ;
+
+        
+    
+    
+            circle_marker_ee194ccd4c02ec2450621cf606979272.bindTooltip(
+                `<div>
+                     It's Time Solidarity Peace Walk (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e8e83d8ee64d9dc05bb97d8d74a7e1bd = L.circleMarker(
+                [42.0428, 12.4964],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_a7260ea501be65d7c3382a3a3ccc4dad = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_07d5af621a7623b290e220be8ec6cae0 = $(`<div id="html_07d5af621a7623b290e220be8ec6cae0" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Left Wing for Israel</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Rome</div>       <div><b>Mapped as:</b> Rome, Italy</div>     </div>     </div>`)[0];
+                popup_a7260ea501be65d7c3382a3a3ccc4dad.setContent(html_07d5af621a7623b290e220be8ec6cae0);
+            
+        
+
+        circle_marker_e8e83d8ee64d9dc05bb97d8d74a7e1bd.bindPopup(popup_a7260ea501be65d7c3382a3a3ccc4dad)
+        ;
+
+        
+    
+    
+            circle_marker_e8e83d8ee64d9dc05bb97d8d74a7e1bd.bindTooltip(
+                `<div>
+                     Left Wing for Israel (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_7827a9b838842eaea248a51def10d4c9 = L.circleMarker(
+                [50.5039, 4.4699],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_06b65afdfabdbaadcfb212d3bbaf2a69 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_a6b16b0ccbbd1f9769e832447cbf40eb = $(`<div id="html_a6b16b0ccbbd1f9769e832447cbf40eb" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">MMM Belgium</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Belgium</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Belgium</div>     </div>     </div>`)[0];
+                popup_06b65afdfabdbaadcfb212d3bbaf2a69.setContent(html_a6b16b0ccbbd1f9769e832447cbf40eb);
+            
+        
+
+        circle_marker_7827a9b838842eaea248a51def10d4c9.bindPopup(popup_06b65afdfabdbaadcfb212d3bbaf2a69)
+        ;
+
+        
+    
+    
+            circle_marker_7827a9b838842eaea248a51def10d4c9.bindTooltip(
+                `<div>
+                     MMM Belgium (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_12406e5c635f121936145b3f1ca4b4c5 = L.circleMarker(
+                [56.1304, -106.3468],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_ce5c83a7252dfe14de2daed8499216f2 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_0890595d19432bb41598774ece144b58 = $(`<div id="html_0890595d19432bb41598774ece144b58" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">New Israel Fund of Canada</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Canada</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Canada</div>     </div>     </div>`)[0];
+                popup_ce5c83a7252dfe14de2daed8499216f2.setContent(html_0890595d19432bb41598774ece144b58);
+            
+        
+
+        circle_marker_12406e5c635f121936145b3f1ca4b4c5.bindPopup(popup_ce5c83a7252dfe14de2daed8499216f2)
+        ;
+
+        
+    
+    
+            circle_marker_12406e5c635f121936145b3f1ca4b4c5.bindTooltip(
+                `<div>
+                     New Israel Fund of Canada (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4e9bc4a67fcd64de6e43710c169b5b5f = L.circleMarker(
+                [40.4093, 49.8671],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_f92e16b32de10fa0d57bc38b04cb6aa7 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_a911420e80fbca5e5633030f6d50ac21 = $(`<div id="html_a911420e80fbca5e5633030f6d50ac21" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Nizami Ganjavi International Center</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Azerbaijan</div>       <div><b>City:</b> Baku</div>       <div><b>Mapped as:</b> Baku, Azerbaijan</div>     </div>     </div>`)[0];
+                popup_f92e16b32de10fa0d57bc38b04cb6aa7.setContent(html_a911420e80fbca5e5633030f6d50ac21);
+            
+        
+
+        circle_marker_4e9bc4a67fcd64de6e43710c169b5b5f.bindPopup(popup_f92e16b32de10fa0d57bc38b04cb6aa7)
+        ;
+
+        
+    
+    
+            circle_marker_4e9bc4a67fcd64de6e43710c169b5b5f.bindTooltip(
+                `<div>
+                     Nizami Ganjavi International Center (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_09a06190fbdaaa490f013bacf16b32d3 = L.circleMarker(
+                [48.1237, -1.2094],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_c2e0be9940626d46ce38c23c246906fb = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_1705d4eefb21f8f4faa834d7743996b6 = $(`<div id="html_1705d4eefb21f8f4faa834d7743996b6" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Non-Violent Movement (Vitré, Brittany)</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> France</div>       <div><b>City:</b> Vitré</div>       <div><b>Mapped as:</b> Vitré, France</div>     </div>     </div>`)[0];
+                popup_c2e0be9940626d46ce38c23c246906fb.setContent(html_1705d4eefb21f8f4faa834d7743996b6);
+            
+        
+
+        circle_marker_09a06190fbdaaa490f013bacf16b32d3.bindPopup(popup_c2e0be9940626d46ce38c23c246906fb)
+        ;
+
+        
+    
+    
+            circle_marker_09a06190fbdaaa490f013bacf16b32d3.bindTooltip(
+                `<div>
+                     Non-Violent Movement (Vitré, Brittany) (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c307f1ac4a7815a9c8dad674e308fbf8 = L.circleMarker(
+                [-1.2921, 36.8219],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_ce59c62fa1fb4706a0f4b675e61a4300 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_2cf04e6887a4f16a79af04018d019fc9 = $(`<div id="html_2cf04e6887a4f16a79af04018d019fc9" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Oxfam</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Kenya</div>       <div><b>City:</b> Nairobi</div>       <div><b>Mapped as:</b> Nairobi, Kenya</div>     </div>     </div>`)[0];
+                popup_ce59c62fa1fb4706a0f4b675e61a4300.setContent(html_2cf04e6887a4f16a79af04018d019fc9);
+            
+        
+
+        circle_marker_c307f1ac4a7815a9c8dad674e308fbf8.bindPopup(popup_ce59c62fa1fb4706a0f4b675e61a4300)
+        ;
+
+        
+    
+    
+            circle_marker_c307f1ac4a7815a9c8dad674e308fbf8.bindTooltip(
+                `<div>
+                     Oxfam (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1c8506f7d7642911ecae11c50c09d4f4 = L.circleMarker(
+                [43.6833, 11.25],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_cbaac36b3c1fbf4810e1325ffb65a46a = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_90b5f709f7181e305371d38e8b5f4e9c = $(`<div id="html_90b5f709f7181e305371d38e8b5f4e9c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">PAX CHRISTI</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Impruneta</div>       <div><b>Mapped as:</b> Impruneta, Italy</div>     </div>     </div>`)[0];
+                popup_cbaac36b3c1fbf4810e1325ffb65a46a.setContent(html_90b5f709f7181e305371d38e8b5f4e9c);
+            
+        
+
+        circle_marker_1c8506f7d7642911ecae11c50c09d4f4.bindPopup(popup_cbaac36b3c1fbf4810e1325ffb65a46a)
+        ;
+
+        
+    
+    
+            circle_marker_1c8506f7d7642911ecae11c50c09d4f4.bindTooltip(
+                `<div>
+                     PAX CHRISTI (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5e8528ec16faa03af24742dff58045c5 = L.circleMarker(
+                [41.90689999999999, 12.5674],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_382084874cc9336d0f0dd1a53b0121c1 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_e4c051e8c8e5d9136f6da513bf1e1e75 = $(`<div id="html_e4c051e8c8e5d9136f6da513bf1e1e75" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Peace Group &amp; Convention of the Rights of the Mediterranean</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Italy</div>     </div>     </div>`)[0];
+                popup_382084874cc9336d0f0dd1a53b0121c1.setContent(html_e4c051e8c8e5d9136f6da513bf1e1e75);
+            
+        
+
+        circle_marker_5e8528ec16faa03af24742dff58045c5.bindPopup(popup_382084874cc9336d0f0dd1a53b0121c1)
+        ;
+
+        
+    
+    
+            circle_marker_5e8528ec16faa03af24742dff58045c5.bindTooltip(
+                `<div>
+                     Peace Group & Convention of the Rights of the Mediterranean (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_28984ce4935dca88c6a42de511f453fd = L.circleMarker(
+                [46.2044, 6.1432],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_a2b2f4a068b1feea17767a3a2ea18421 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_488cad189a3a3ba81f21a18cb3076c4b = $(`<div id="html_488cad189a3a3ba81f21a18cb3076c4b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Principles for Peace</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Switzerland</div>       <div><b>City:</b> Geneva</div>       <div><b>Mapped as:</b> Geneva, Switzerland</div>     </div>     </div>`)[0];
+                popup_a2b2f4a068b1feea17767a3a2ea18421.setContent(html_488cad189a3a3ba81f21a18cb3076c4b);
+            
+        
+
+        circle_marker_28984ce4935dca88c6a42de511f453fd.bindPopup(popup_a2b2f4a068b1feea17767a3a2ea18421)
+        ;
+
+        
+    
+    
+            circle_marker_28984ce4935dca88c6a42de511f453fd.bindTooltip(
+                `<div>
+                     Principles for Peace (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_accf9578c649ba04028f5d208779f12e = L.circleMarker(
+                [38.9072, -77.0369],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_0480f4acdda9f8e874648a712beb5668 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_7e8babf2d6bcbe33cec3edcd367a66e9 = $(`<div id="html_7e8babf2d6bcbe33cec3edcd367a66e9" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Refugees International</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> United States</div>       <div><b>City:</b> Washington, DC</div>       <div><b>Mapped as:</b> Washington, DC, United States</div>     </div>     </div>`)[0];
+                popup_0480f4acdda9f8e874648a712beb5668.setContent(html_7e8babf2d6bcbe33cec3edcd367a66e9);
+            
+        
+
+        circle_marker_accf9578c649ba04028f5d208779f12e.bindPopup(popup_0480f4acdda9f8e874648a712beb5668)
+        ;
+
+        
+    
+    
+            circle_marker_accf9578c649ba04028f5d208779f12e.bindTooltip(
+                `<div>
+                     Refugees International (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1f6e2fb8683e267b4e2b3b1eb59f295a = L.circleMarker(
+                [64.1466, -21.9426],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_475d6f4bb6b5bf27115127d8c2e69550 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_1cd38e99500bbd21ab5179e391973f27 = $(`<div id="html_1cd38e99500bbd21ab5179e391973f27" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Reykjavik Global Forum</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Iceland</div>       <div><b>City:</b> Reykjavik</div>       <div><b>Mapped as:</b> Reykjavik, Iceland</div>     </div>     </div>`)[0];
+                popup_475d6f4bb6b5bf27115127d8c2e69550.setContent(html_1cd38e99500bbd21ab5179e391973f27);
+            
+        
+
+        circle_marker_1f6e2fb8683e267b4e2b3b1eb59f295a.bindPopup(popup_475d6f4bb6b5bf27115127d8c2e69550)
+        ;
+
+        
+    
+    
+            circle_marker_1f6e2fb8683e267b4e2b3b1eb59f295a.bindTooltip(
+                `<div>
+                     Reykjavik Global Forum (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ba6b199ab7b40c26bd510f517c97b5e6 = L.circleMarker(
+                [45.4642, 9.19],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_10a60c6630780be4a53610ed857c710a = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_0105a3840d6481619e79681de2c18ddb = $(`<div id="html_0105a3840d6481619e79681de2c18ddb" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Scarpetta Rossa</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Milan</div>       <div><b>Mapped as:</b> Milan, Italy</div>     </div>     </div>`)[0];
+                popup_10a60c6630780be4a53610ed857c710a.setContent(html_0105a3840d6481619e79681de2c18ddb);
+            
+        
+
+        circle_marker_ba6b199ab7b40c26bd510f517c97b5e6.bindPopup(popup_10a60c6630780be4a53610ed857c710a)
+        ;
+
+        
+    
+    
+            circle_marker_ba6b199ab7b40c26bd510f517c97b5e6.bindTooltip(
+                `<div>
+                     Scarpetta Rossa (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f517ec9f8b27f788c3f4ba17b54e23d5 = L.circleMarker(
+                [45.499199999999995, 9.19],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_b77456fad19648b75becb1af154162bd = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_612d56d00d27058472e0c51f605e8e02 = $(`<div id="html_612d56d00d27058472e0c51f605e8e02" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Segreteria On. Lia Quartapelle</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Milan</div>       <div><b>Mapped as:</b> Milan, Italy</div>     </div>     </div>`)[0];
+                popup_b77456fad19648b75becb1af154162bd.setContent(html_612d56d00d27058472e0c51f605e8e02);
+            
+        
+
+        circle_marker_f517ec9f8b27f788c3f4ba17b54e23d5.bindPopup(popup_b77456fad19648b75becb1af154162bd)
+        ;
+
+        
+    
+    
+            circle_marker_f517ec9f8b27f788c3f4ba17b54e23d5.bindTooltip(
+                `<div>
+                     Segreteria On. Lia Quartapelle (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_34016ff565820515282b166f5e960300 = L.circleMarker(
+                [61.524, 105.3188],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_99804374d0490101e31a5abb00e69f93 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_c19b200afba16d8d22c9e8511385184a = $(`<div id="html_c19b200afba16d8d22c9e8511385184a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Soldiers&#x27; Mothers</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Russia</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Russia</div>     </div>     </div>`)[0];
+                popup_99804374d0490101e31a5abb00e69f93.setContent(html_c19b200afba16d8d22c9e8511385184a);
+            
+        
+
+        circle_marker_34016ff565820515282b166f5e960300.bindPopup(popup_99804374d0490101e31a5abb00e69f93)
+        ;
+
+        
+    
+    
+            circle_marker_34016ff565820515282b166f5e960300.bindTooltip(
+                `<div>
+                     Soldiers' Mothers (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_de952d023a35c1ea44d21dd76374011e = L.circleMarker(
+                [60.1282, 18.6435],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_e24c55cdda55e523aa0062f6534dbae9 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_c3a3f18d7cd3f70f7ae53ab4d4245d65 = $(`<div id="html_c3a3f18d7cd3f70f7ae53ab4d4245d65" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Swedish Theological Institute</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Sweden</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Sweden</div>     </div>     </div>`)[0];
+                popup_e24c55cdda55e523aa0062f6534dbae9.setContent(html_c3a3f18d7cd3f70f7ae53ab4d4245d65);
+            
+        
+
+        circle_marker_de952d023a35c1ea44d21dd76374011e.bindPopup(popup_e24c55cdda55e523aa0062f6534dbae9)
+        ;
+
+        
+    
+    
+            circle_marker_de952d023a35c1ea44d21dd76374011e.bindTooltip(
+                `<div>
+                     Swedish Theological Institute (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_88f8c1a6061934fc4a4872425fa08884 = L.circleMarker(
+                [52.1326, 5.2913],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_94dc1b21c4a6a7922affdf6c018c6f56 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_1a7093047e50e9b4577dca5f4b9fc717 = $(`<div id="html_1a7093047e50e9b4577dca5f4b9fc717" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">The Hauge</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Netherlands</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Netherlands</div>     </div>     </div>`)[0];
+                popup_94dc1b21c4a6a7922affdf6c018c6f56.setContent(html_1a7093047e50e9b4577dca5f4b9fc717);
+            
+        
+
+        circle_marker_88f8c1a6061934fc4a4872425fa08884.bindPopup(popup_94dc1b21c4a6a7922affdf6c018c6f56)
+        ;
+
+        
+    
+    
+            circle_marker_88f8c1a6061934fc4a4872425fa08884.bindTooltip(
+                `<div>
+                     The Hauge (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_929eb72d9100276387817663483fea06 = L.circleMarker(
+                [56.1654, -106.3468],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_b40cda39e3465bd51bf9dc91e051200e = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_8c22ae08590cb4c7afc0f41c98fe5675 = $(`<div id="html_8c22ae08590cb4c7afc0f41c98fe5675" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Voice of Women for Peace (VOW)</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Canada</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Canada</div>     </div>     </div>`)[0];
+                popup_b40cda39e3465bd51bf9dc91e051200e.setContent(html_8c22ae08590cb4c7afc0f41c98fe5675);
+            
+        
+
+        circle_marker_929eb72d9100276387817663483fea06.bindPopup(popup_b40cda39e3465bd51bf9dc91e051200e)
+        ;
+
+        
+    
+    
+            circle_marker_929eb72d9100276387817663483fea06.bindTooltip(
+                `<div>
+                     Voice of Women for Peace (VOW) (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d5b2881248c01300d4b8f8905484ec03 = L.circleMarker(
+                [56.2004, -106.3468],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_e5b231e122a7f77c676ddb76c402b71d = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_9eb6145341a1a2e321dea649309c7c4d = $(`<div id="html_9eb6145341a1a2e321dea649309c7c4d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">WILPF Canada</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Canada</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Canada</div>     </div>     </div>`)[0];
+                popup_e5b231e122a7f77c676ddb76c402b71d.setContent(html_9eb6145341a1a2e321dea649309c7c4d);
+            
+        
+
+        circle_marker_d5b2881248c01300d4b8f8905484ec03.bindPopup(popup_e5b231e122a7f77c676ddb76c402b71d)
+        ;
+
+        
+    
+    
+            circle_marker_d5b2881248c01300d4b8f8905484ec03.bindTooltip(
+                `<div>
+                     WILPF Canada (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_63522064d94b02b25d5af5c34b44bc59 = L.circleMarker(
+                [41.9419, 12.5674],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_85ba5847984ceeaec895b61eb31c75b9 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_602f3290e9a2463f8354340efa850903 = $(`<div id="html_602f3290e9a2463f8354340efa850903" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">WILPF Italia</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Italy</div>     </div>     </div>`)[0];
+                popup_85ba5847984ceeaec895b61eb31c75b9.setContent(html_602f3290e9a2463f8354340efa850903);
+            
+        
+
+        circle_marker_63522064d94b02b25d5af5c34b44bc59.bindPopup(popup_85ba5847984ceeaec895b61eb31c75b9)
+        ;
+
+        
+    
+    
+            circle_marker_63522064d94b02b25d5af5c34b44bc59.bindTooltip(
+                `<div>
+                     WILPF Italia (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_5b4dee8609adfa6be976fa08e2b54a9d = L.circleMarker(
+                [20.0, 0.0],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_3bb37e471c500bdc419c73cd44cd2b7e = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_970b7316d2e3c89a13ce3ea2ac76be52 = $(`<div id="html_970b7316d2e3c89a13ce3ea2ac76be52" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Women for Women</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Global</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Global</div>     </div>     </div>`)[0];
+                popup_3bb37e471c500bdc419c73cd44cd2b7e.setContent(html_970b7316d2e3c89a13ce3ea2ac76be52);
+            
+        
+
+        circle_marker_5b4dee8609adfa6be976fa08e2b54a9d.bindPopup(popup_3bb37e471c500bdc419c73cd44cd2b7e)
+        ;
+
+        
+    
+    
+            circle_marker_5b4dee8609adfa6be976fa08e2b54a9d.bindTooltip(
+                `<div>
+                     Women for Women (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_696e9af2a94fedf5a72f21918a101d0b = L.circleMarker(
+                [47.5162, 14.5501],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_5529e3c6b2c90fb463e376e7c0c56346 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_1b320bc15df75390ec0b585f81adfddd = $(`<div id="html_1b320bc15df75390ec0b585f81adfddd" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Women International League for Peace and Freedom (Austria)</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Austria</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Austria</div>     </div>     </div>`)[0];
+                popup_5529e3c6b2c90fb463e376e7c0c56346.setContent(html_1b320bc15df75390ec0b585f81adfddd);
+            
+        
+
+        circle_marker_696e9af2a94fedf5a72f21918a101d0b.bindPopup(popup_5529e3c6b2c90fb463e376e7c0c56346)
+        ;
+
+        
+    
+    
+            circle_marker_696e9af2a94fedf5a72f21918a101d0b.bindTooltip(
+                `<div>
+                     Women International League for Peace and Freedom (Austria) (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_12ea118e8ad7b1a53e0c10c043a90f1b = L.circleMarker(
+                [39.863299999999995, -98.5795],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_970e143419355c81d1bd63ff344444ff = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_c7ffa86cba7dba97a485d11bd110ae24 = $(`<div id="html_c7ffa86cba7dba97a485d11bd110ae24" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Women International League for Peace and Freedom (NYC)</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> United States</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> United States</div>     </div>     </div>`)[0];
+                popup_970e143419355c81d1bd63ff344444ff.setContent(html_c7ffa86cba7dba97a485d11bd110ae24);
+            
+        
+
+        circle_marker_12ea118e8ad7b1a53e0c10c043a90f1b.bindPopup(popup_970e143419355c81d1bd63ff344444ff)
+        ;
+
+        
+    
+    
+            circle_marker_12ea118e8ad7b1a53e0c10c043a90f1b.bindTooltip(
+                `<div>
+                     Women International League for Peace and Freedom (NYC) (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8c1dbe1c8cd6c23b1b749d30410aa35c = L.circleMarker(
+                [50.8503, 4.3517],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_463f60986766a161252c1c600a402c7e = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_195a59c356a25fc67406701d90196644 = $(`<div id="html_195a59c356a25fc67406701d90196644" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Women Political Leaders</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Belgium</div>       <div><b>City:</b> Brussels</div>       <div><b>Mapped as:</b> Brussels, Belgium</div>     </div>     </div>`)[0];
+                popup_463f60986766a161252c1c600a402c7e.setContent(html_195a59c356a25fc67406701d90196644);
+            
+        
+
+        circle_marker_8c1dbe1c8cd6c23b1b749d30410aa35c.bindPopup(popup_463f60986766a161252c1c600a402c7e)
+        ;
+
+        
+    
+    
+            circle_marker_8c1dbe1c8cd6c23b1b749d30410aa35c.bindTooltip(
+                `<div>
+                     Women Political Leaders (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_48c37a23061d18e64559761b2d9c42a6 = L.circleMarker(
+                [31.8033, 35.2137],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_580e15f293b1726964623e67e9706a43);
+        
+    
+        var popup_5c4e8bc9d1f91b47f5128b58262aded6 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_aea5907119f0f80f2b8ccfced1092407 = $(`<div id="html_aea5907119f0f80f2b8ccfced1092407" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Parents Circle – Families Forum</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> ABBY</div>       <div><b>Country:</b> Israel/Palestine</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Israel/Palestine</div>     </div>     </div>`)[0];
+                popup_5c4e8bc9d1f91b47f5128b58262aded6.setContent(html_aea5907119f0f80f2b8ccfced1092407);
+            
+        
+
+        circle_marker_48c37a23061d18e64559761b2d9c42a6.bindPopup(popup_5c4e8bc9d1f91b47f5128b58262aded6)
+        ;
+
+        
+    
+    
+            circle_marker_48c37a23061d18e64559761b2d9c42a6.bindTooltip(
+                `<div>
+                     Parents Circle – Families Forum (ABBY)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_580e15f293b1726964623e67e9706a43.addTo(map_e0eaae9337217fc59dba8b2bb4608a0b);
+        
+    
+            var feature_group_bbc92848ccc2ab29be1586ad58a4305d = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_24835877443bf28f8bf20f0bc7cfb025 = L.circleMarker(
+                [46.2276, 2.2137],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_29d505f71f636e6294be748be8cd979b = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_3e290f81b289dd27e77e6bad4fbc5f3f = $(`<div id="html_3e290f81b289dd27e77e6bad4fbc5f3f" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Ateliers Partage&#x27;</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> France</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> France</div>     </div>     </div>`)[0];
+                popup_29d505f71f636e6294be748be8cd979b.setContent(html_3e290f81b289dd27e77e6bad4fbc5f3f);
+            
+        
+
+        circle_marker_24835877443bf28f8bf20f0bc7cfb025.bindPopup(popup_29d505f71f636e6294be748be8cd979b)
+        ;
+
+        
+    
+    
+            circle_marker_24835877443bf28f8bf20f0bc7cfb025.bindTooltip(
+                `<div>
+                     Ateliers Partage' (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_79e648190ca9695baccee3cde826387b = L.circleMarker(
+                [41.97689999999999, 12.5674],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_89fe567abebc6a0a348cf06416b134c9 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_f10fe8019d97f3d425484bfa9fef557c = $(`<div id="html_f10fe8019d97f3d425484bfa9fef557c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">CGIL ITALY</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Italy</div>     </div>     </div>`)[0];
+                popup_89fe567abebc6a0a348cf06416b134c9.setContent(html_f10fe8019d97f3d425484bfa9fef557c);
+            
+        
+
+        circle_marker_79e648190ca9695baccee3cde826387b.bindPopup(popup_89fe567abebc6a0a348cf06416b134c9)
+        ;
+
+        
+    
+    
+            circle_marker_79e648190ca9695baccee3cde826387b.bindTooltip(
+                `<div>
+                     CGIL ITALY (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_785ec1dd45a3609d988184c2c29bfbdb = L.circleMarker(
+                [43.7711, 11.2486],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_3889db636c702baecd83388ad69b6edf = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_8af766223b5eef093b54865cf4306320 = $(`<div id="html_8af766223b5eef093b54865cf4306320" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Commissione Regionale Pari Opportunità della Toscana</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Tuscany</div>       <div><b>Mapped as:</b> Tuscany, Italy</div>     </div>     </div>`)[0];
+                popup_3889db636c702baecd83388ad69b6edf.setContent(html_8af766223b5eef093b54865cf4306320);
+            
+        
+
+        circle_marker_785ec1dd45a3609d988184c2c29bfbdb.bindPopup(popup_3889db636c702baecd83388ad69b6edf)
+        ;
+
+        
+    
+    
+            circle_marker_785ec1dd45a3609d988184c2c29bfbdb.bindTooltip(
+                `<div>
+                     Commissione Regionale Pari Opportunità della Toscana (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ec4eb64c578b8542527ea857ad514397 = L.circleMarker(
+                [51.2277, 6.7735],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_48f90232660e8c836eee6abc9d19f23b = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_2cbc4a8e100be781273145effbf568bf = $(`<div id="html_2cbc4a8e100be781273145effbf568bf" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Evangelische Kirche im Rheinland</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Germany</div>       <div><b>City:</b> Düsseldorf</div>       <div><b>Mapped as:</b> Düsseldorf, Germany</div>     </div>     </div>`)[0];
+                popup_48f90232660e8c836eee6abc9d19f23b.setContent(html_2cbc4a8e100be781273145effbf568bf);
+            
+        
+
+        circle_marker_ec4eb64c578b8542527ea857ad514397.bindPopup(popup_48f90232660e8c836eee6abc9d19f23b)
+        ;
+
+        
+    
+    
+            circle_marker_ec4eb64c578b8542527ea857ad514397.bindTooltip(
+                `<div>
+                     Evangelische Kirche im Rheinland (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_30ff70b4987adba4e6979973b41e1c3d = L.circleMarker(
+                [52.3676, 4.9041],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_0dfd7eb8d0a37458b5dd28d0595d0901 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_a3935cbb651f1c2a63e4c2ca7cab7522 = $(`<div id="html_a3935cbb651f1c2a63e4c2ca7cab7522" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Free University of Amsterdam</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Netherlands</div>       <div><b>City:</b> Amsterdam</div>       <div><b>Mapped as:</b> Amsterdam, Netherlands</div>     </div>     </div>`)[0];
+                popup_0dfd7eb8d0a37458b5dd28d0595d0901.setContent(html_a3935cbb651f1c2a63e4c2ca7cab7522);
+            
+        
+
+        circle_marker_30ff70b4987adba4e6979973b41e1c3d.bindPopup(popup_0dfd7eb8d0a37458b5dd28d0595d0901)
+        ;
+
+        
+    
+    
+            circle_marker_30ff70b4987adba4e6979973b41e1c3d.bindTooltip(
+                `<div>
+                     Free University of Amsterdam (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_83cd695368e7a704e12b29c86f916f57 = L.circleMarker(
+                [52.16759999999999, 5.2913],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_02b697d254a1e1f932f48d208ba57890 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_9d1a193c2887ee8e4f068452492cb381 = $(`<div id="html_9d1a193c2887ee8e4f068452492cb381" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Hague supporters group</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Netherlands</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Netherlands</div>     </div>     </div>`)[0];
+                popup_02b697d254a1e1f932f48d208ba57890.setContent(html_9d1a193c2887ee8e4f068452492cb381);
+            
+        
+
+        circle_marker_83cd695368e7a704e12b29c86f916f57.bindPopup(popup_02b697d254a1e1f932f48d208ba57890)
+        ;
+
+        
+    
+    
+            circle_marker_83cd695368e7a704e12b29c86f916f57.bindTooltip(
+                `<div>
+                     Hague supporters group (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_919bc65c725a16872ccbc357bbdbc335 = L.circleMarker(
+                [46.239399999999996, 6.1432],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_19f2298e8106f41ece471e7ecfec0c64 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_97ffa27c34d19bc9056f82aae5da2990 = $(`<div id="html_97ffa27c34d19bc9056f82aae5da2990" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">La Cite Bleue Schweiz</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Switzerland</div>       <div><b>City:</b> Geneva</div>       <div><b>Mapped as:</b> Geneva, Switzerland</div>     </div>     </div>`)[0];
+                popup_19f2298e8106f41ece471e7ecfec0c64.setContent(html_97ffa27c34d19bc9056f82aae5da2990);
+            
+        
+
+        circle_marker_919bc65c725a16872ccbc357bbdbc335.bindPopup(popup_19f2298e8106f41ece471e7ecfec0c64)
+        ;
+
+        
+    
+    
+            circle_marker_919bc65c725a16872ccbc357bbdbc335.bindTooltip(
+                `<div>
+                     La Cite Bleue Schweiz (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_ed3b8ae6a42f45bbd9341852e79f72e8 = L.circleMarker(
+                [48.8566, 2.3522],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_f3b2dd8a5dbd801957803e18f765cb6b = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_2b8f2821428f41b46b447028fe243798 = $(`<div id="html_2b8f2821428f41b46b447028fe243798" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Les Guerrières de la Paix</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> France</div>       <div><b>City:</b> Paris</div>       <div><b>Mapped as:</b> Paris, France</div>     </div>     </div>`)[0];
+                popup_f3b2dd8a5dbd801957803e18f765cb6b.setContent(html_2b8f2821428f41b46b447028fe243798);
+            
+        
+
+        circle_marker_ed3b8ae6a42f45bbd9341852e79f72e8.bindPopup(popup_f3b2dd8a5dbd801957803e18f765cb6b)
+        ;
+
+        
+    
+    
+            circle_marker_ed3b8ae6a42f45bbd9341852e79f72e8.bindTooltip(
+                `<div>
+                     Les Guerrières de la Paix (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_98314f3dad448a5fd763764450541d49 = L.circleMarker(
+                [31.0461, 34.8516],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_759332f5a0642690e53d605230af690f = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_7f20d22a6606a170247f9d11f380b0a2 = $(`<div id="html_7f20d22a6606a170247f9d11f380b0a2" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Liel Magen</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Israel</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Israel</div>     </div>     </div>`)[0];
+                popup_759332f5a0642690e53d605230af690f.setContent(html_7f20d22a6606a170247f9d11f380b0a2);
+            
+        
+
+        circle_marker_98314f3dad448a5fd763764450541d49.bindPopup(popup_759332f5a0642690e53d605230af690f)
+        ;
+
+        
+    
+    
+            circle_marker_98314f3dad448a5fd763764450541d49.bindTooltip(
+                `<div>
+                     Liel Magen (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_98ec5389a1e6dfec46e7e3bf2b415db2 = L.circleMarker(
+                [20.035, 0.0],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_bfdeb0d738eb3466931c1d3757f16599 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_8e5ab5ee570f5d120eec3cee45ea65aa = $(`<div id="html_8e5ab5ee570f5d120eec3cee45ea65aa" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Live Peace</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Global</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Global</div>     </div>     </div>`)[0];
+                popup_bfdeb0d738eb3466931c1d3757f16599.setContent(html_8e5ab5ee570f5d120eec3cee45ea65aa);
+            
+        
+
+        circle_marker_98ec5389a1e6dfec46e7e3bf2b415db2.bindPopup(popup_bfdeb0d738eb3466931c1d3757f16599)
+        ;
+
+        
+    
+    
+            circle_marker_98ec5389a1e6dfec46e7e3bf2b415db2.bindTooltip(
+                `<div>
+                     Live Peace (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f550b2b9815eff4573548cae6aa6cdb1 = L.circleMarker(
+                [43.80459999999999, 11.2558],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_e734f1fad4fe7dd7d89d3bb7d620dbc9 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_3d7d888209eed728357b94c86746e68e = $(`<div id="html_3d7d888209eed728357b94c86746e68e" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">municipal councilor in the City Council of Florence</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Florence</div>       <div><b>Mapped as:</b> Florence, Italy</div>     </div>     </div>`)[0];
+                popup_e734f1fad4fe7dd7d89d3bb7d620dbc9.setContent(html_3d7d888209eed728357b94c86746e68e);
+            
+        
+
+        circle_marker_f550b2b9815eff4573548cae6aa6cdb1.bindPopup(popup_e734f1fad4fe7dd7d89d3bb7d620dbc9)
+        ;
+
+        
+    
+    
+            circle_marker_f550b2b9815eff4573548cae6aa6cdb1.bindTooltip(
+                `<div>
+                     municipal councilor in the City Council of Florence (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c87b1b90fc2c41a92f87bf83a77dbdf9 = L.circleMarker(
+                [31.0811, 34.8516],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_e372e843a3d93129de9f75bf5e7ac818 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_847ed5a36fef2ce6be66fd52a44e56a3 = $(`<div id="html_847ed5a36fef2ce6be66fd52a44e56a3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Noami Sternberg</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Israel</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Israel</div>     </div>     </div>`)[0];
+                popup_e372e843a3d93129de9f75bf5e7ac818.setContent(html_847ed5a36fef2ce6be66fd52a44e56a3);
+            
+        
+
+        circle_marker_c87b1b90fc2c41a92f87bf83a77dbdf9.bindPopup(popup_e372e843a3d93129de9f75bf5e7ac818)
+        ;
+
+        
+    
+    
+            circle_marker_c87b1b90fc2c41a92f87bf83a77dbdf9.bindTooltip(
+                `<div>
+                     Noami Sternberg (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_db69f447874adfa5bdf231ff12a05268 = L.circleMarker(
+                [20.07, 0.0],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_1a9fd85ea0a7db607c20f4f434d1d68f = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_41805b415752c9a2ddcffabc243a95d6 = $(`<div id="html_41805b415752c9a2ddcffabc243a95d6" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Pathways to Peace</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Global</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Global</div>     </div>     </div>`)[0];
+                popup_1a9fd85ea0a7db607c20f4f434d1d68f.setContent(html_41805b415752c9a2ddcffabc243a95d6);
+            
+        
+
+        circle_marker_db69f447874adfa5bdf231ff12a05268.bindPopup(popup_1a9fd85ea0a7db607c20f4f434d1d68f)
+        ;
+
+        
+    
+    
+            circle_marker_db69f447874adfa5bdf231ff12a05268.bindTooltip(
+                `<div>
+                     Pathways to Peace (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_019094df5dfa96ccb04f84d7280ce332 = L.circleMarker(
+                [52.4026, 4.9041],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_49f3096ec41a36e1cc801d715e013cf9 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_ca352654799182900bc89cfd4ed110fe = $(`<div id="html_ca352654799182900bc89cfd4ed110fe" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Peace Walk</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Netherlands</div>       <div><b>City:</b> Amsterdam</div>       <div><b>Mapped as:</b> Amsterdam, Netherlands</div>     </div>     </div>`)[0];
+                popup_49f3096ec41a36e1cc801d715e013cf9.setContent(html_ca352654799182900bc89cfd4ed110fe);
+            
+        
+
+        circle_marker_019094df5dfa96ccb04f84d7280ce332.bindPopup(popup_49f3096ec41a36e1cc801d715e013cf9)
+        ;
+
+        
+    
+    
+            circle_marker_019094df5dfa96ccb04f84d7280ce332.bindTooltip(
+                `<div>
+                     Peace Walk (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_bc84de6589a99a36b54f0aa1886a347f = L.circleMarker(
+                [48.8916, 2.3522],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_c70c660a7adc5502873c33726ee21c24 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_b30f8d861f0312f093d8b1491ae30327 = $(`<div id="html_b30f8d861f0312f093d8b1491ae30327" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Raja foundation</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> France</div>       <div><b>City:</b> Paris</div>       <div><b>Mapped as:</b> Paris, France</div>     </div>     </div>`)[0];
+                popup_c70c660a7adc5502873c33726ee21c24.setContent(html_b30f8d861f0312f093d8b1491ae30327);
+            
+        
+
+        circle_marker_bc84de6589a99a36b54f0aa1886a347f.bindPopup(popup_c70c660a7adc5502873c33726ee21c24)
+        ;
+
+        
+    
+    
+            circle_marker_bc84de6589a99a36b54f0aa1886a347f.bindTooltip(
+                `<div>
+                     Raja foundation (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_866f51328b7b1ea50472c0ec4868bae2 = L.circleMarker(
+                [31.8383, 35.2137],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_37289a8240b0babf3edff399038345d7 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_f9eea723eacbf355f97866270cd70502 = $(`<div id="html_f9eea723eacbf355f97866270cd70502" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Roots – Green Peace</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Israel/Palestine</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Israel/Palestine</div>     </div>     </div>`)[0];
+                popup_37289a8240b0babf3edff399038345d7.setContent(html_f9eea723eacbf355f97866270cd70502);
+            
+        
+
+        circle_marker_866f51328b7b1ea50472c0ec4868bae2.bindPopup(popup_37289a8240b0babf3edff399038345d7)
+        ;
+
+        
+    
+    
+            circle_marker_866f51328b7b1ea50472c0ec4868bae2.bindTooltip(
+                `<div>
+                     Roots – Green Peace (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_de722c7059b9dbea685859ea2dea447a = L.circleMarker(
+                [41.9028, 12.5314],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_468c10738d29d9f3c0bfb33987ae0502 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_f55cd265d75cf0106fcfa7a6ec8d886d = $(`<div id="html_f55cd265d75cf0106fcfa7a6ec8d886d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Sapienza Univ of Rome</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Rome</div>       <div><b>Mapped as:</b> Rome, Italy</div>     </div>     </div>`)[0];
+                popup_468c10738d29d9f3c0bfb33987ae0502.setContent(html_f55cd265d75cf0106fcfa7a6ec8d886d);
+            
+        
+
+        circle_marker_de722c7059b9dbea685859ea2dea447a.bindPopup(popup_468c10738d29d9f3c0bfb33987ae0502)
+        ;
+
+        
+    
+    
+            circle_marker_de722c7059b9dbea685859ea2dea447a.bindTooltip(
+                `<div>
+                     Sapienza Univ of Rome (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1b34d1994d736278d85b398d51b0a9f3 = L.circleMarker(
+                [45.5342, 9.19],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_fcb5db8d7ec6c1e3915cb4a0b696d369 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_231c27db7757424db304d29fa9365918 = $(`<div id="html_231c27db7757424db304d29fa9365918" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Univeristy of Milan-Bicocca - Department of Jurisprudence</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Milan</div>       <div><b>Mapped as:</b> Milan, Italy</div>     </div>     </div>`)[0];
+                popup_fcb5db8d7ec6c1e3915cb4a0b696d369.setContent(html_231c27db7757424db304d29fa9365918);
+            
+        
+
+        circle_marker_1b34d1994d736278d85b398d51b0a9f3.bindPopup(popup_fcb5db8d7ec6c1e3915cb4a0b696d369)
+        ;
+
+        
+    
+    
+            circle_marker_1b34d1994d736278d85b398d51b0a9f3.bindTooltip(
+                `<div>
+                     Univeristy of Milan-Bicocca - Department of Jurisprudence (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a6dce8d9f6f08d3e62f30498eb15d97b = L.circleMarker(
+                [51.2007, 10.4515],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_596b735244c9fb56ed11a4ea24e5135a = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_5ee619d71f170c2806683b51be2fbd81 = $(`<div id="html_5ee619d71f170c2806683b51be2fbd81" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Women Wage Peace (WWP) &amp; Women of the Sun (WOS) – Germany Support Group</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Germany</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Germany</div>     </div>     </div>`)[0];
+                popup_596b735244c9fb56ed11a4ea24e5135a.setContent(html_5ee619d71f170c2806683b51be2fbd81);
+            
+        
+
+        circle_marker_a6dce8d9f6f08d3e62f30498eb15d97b.bindPopup(popup_596b735244c9fb56ed11a4ea24e5135a)
+        ;
+
+        
+    
+    
+            circle_marker_a6dce8d9f6f08d3e62f30498eb15d97b.bindTooltip(
+                `<div>
+                     Women Wage Peace (WWP) & Women of the Sun (WOS) – Germany Support Group (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_d5030773eba0fea5786d7ecfd6d05b8c = L.circleMarker(
+                [50.885299999999994, 4.3517],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_3e775892decedfb65702cb2bc4874d63 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_3001e9ed082a2a5e19c10136e188ceb2 = $(`<div id="html_3001e9ed082a2a5e19c10136e188ceb2" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">WWP Brussels</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Belgium</div>       <div><b>City:</b> Brussels</div>       <div><b>Mapped as:</b> Brussels, Belgium</div>     </div>     </div>`)[0];
+                popup_3e775892decedfb65702cb2bc4874d63.setContent(html_3001e9ed082a2a5e19c10136e188ceb2);
+            
+        
+
+        circle_marker_d5030773eba0fea5786d7ecfd6d05b8c.bindPopup(popup_3e775892decedfb65702cb2bc4874d63)
+        ;
+
+        
+    
+    
+            circle_marker_d5030773eba0fea5786d7ecfd6d05b8c.bindTooltip(
+                `<div>
+                     WWP Brussels (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_a4894c7f779a2208642b6da180d2cdf9 = L.circleMarker(
+                [56.2354, -106.3468],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_1fe43a61460632fa2575982298380b51 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_f3e9347a031028c17ed7ba845ea4ecb6 = $(`<div id="html_f3e9347a031028c17ed7ba845ea4ecb6" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">WWP Canada</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Canada</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Canada</div>     </div>     </div>`)[0];
+                popup_1fe43a61460632fa2575982298380b51.setContent(html_f3e9347a031028c17ed7ba845ea4ecb6);
+            
+        
+
+        circle_marker_a4894c7f779a2208642b6da180d2cdf9.bindPopup(popup_1fe43a61460632fa2575982298380b51)
+        ;
+
+        
+    
+    
+            circle_marker_a4894c7f779a2208642b6da180d2cdf9.bindTooltip(
+                `<div>
+                     WWP Canada (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_2c24ef1d5d63cd18903a8272e0769656 = L.circleMarker(
+                [46.2744, 6.1432],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_bbc92848ccc2ab29be1586ad58a4305d);
+        
+    
+        var popup_f79529ec7419c106dfaf857cfaf6498d = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_adbf568efe181e82d0ca99880af4c196 = $(`<div id="html_adbf568efe181e82d0ca99880af4c196" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Ygal Sebban - also in LA CITÉ BLEUE GENÈVE</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> MC</div>       <div><b>Country:</b> Switzerland</div>       <div><b>City:</b> Geneva</div>       <div><b>Mapped as:</b> Geneva, Switzerland</div>     </div>     </div>`)[0];
+                popup_f79529ec7419c106dfaf857cfaf6498d.setContent(html_adbf568efe181e82d0ca99880af4c196);
+            
+        
+
+        circle_marker_2c24ef1d5d63cd18903a8272e0769656.bindPopup(popup_f79529ec7419c106dfaf857cfaf6498d)
+        ;
+
+        
+    
+    
+            circle_marker_2c24ef1d5d63cd18903a8272e0769656.bindTooltip(
+                `<div>
+                     Ygal Sebban - also in LA CITÉ BLEUE GENÈVE (MC)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_bbc92848ccc2ab29be1586ad58a4305d.addTo(map_e0eaae9337217fc59dba8b2bb4608a0b);
+        
+    
+            var feature_group_327d963b80556374a923f46d087c8f1f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_4bed32c088387ec89c24876c400196dd = L.circleMarker(
+                [45.4408, 12.3155],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_327d963b80556374a923f46d087c8f1f);
+        
+    
+        var popup_15c43b3d85b993997d2f35a5e92791ad = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_e7549683eaf5c22d5216efaa3cf766ff = $(`<div id="html_e7549683eaf5c22d5216efaa3cf766ff" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Human Safety Net</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> VV</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Venice</div>       <div><b>Mapped as:</b> Venice, Italy</div>     </div>     </div>`)[0];
+                popup_15c43b3d85b993997d2f35a5e92791ad.setContent(html_e7549683eaf5c22d5216efaa3cf766ff);
+            
+        
+
+        circle_marker_4bed32c088387ec89c24876c400196dd.bindPopup(popup_15c43b3d85b993997d2f35a5e92791ad)
+        ;
+
+        
+    
+    
+            circle_marker_4bed32c088387ec89c24876c400196dd.bindTooltip(
+                `<div>
+                     Human Safety Net (VV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_50d343b8ef35284f47f1bb8d8d9e51b9 = L.circleMarker(
+                [38.9422, -77.0369],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_327d963b80556374a923f46d087c8f1f);
+        
+    
+        var popup_c7b7eaf550d371b2776332a54dfea80b = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_9bb1bc366dfef4e27b55d75e4019c921 = $(`<div id="html_9bb1bc366dfef4e27b55d75e4019c921" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">International Civil Society Action Network</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> VV</div>       <div><b>Country:</b> United States</div>       <div><b>City:</b> Washington, DC</div>       <div><b>Mapped as:</b> Washington, DC, United States</div>     </div>     </div>`)[0];
+                popup_c7b7eaf550d371b2776332a54dfea80b.setContent(html_9bb1bc366dfef4e27b55d75e4019c921);
+            
+        
+
+        circle_marker_50d343b8ef35284f47f1bb8d8d9e51b9.bindPopup(popup_c7b7eaf550d371b2776332a54dfea80b)
+        ;
+
+        
+    
+    
+            circle_marker_50d343b8ef35284f47f1bb8d8d9e51b9.bindTooltip(
+                `<div>
+                     International Civil Society Action Network (VV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_1dd6ed23d2706ecf53b6c51d0b12103b = L.circleMarker(
+                [20.105, 0.0],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_327d963b80556374a923f46d087c8f1f);
+        
+    
+        var popup_ea69f029e9c4d5589d806e60dcb58298 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_11240d9439e15fdc36762aa8c11f96d8 = $(`<div id="html_11240d9439e15fdc36762aa8c11f96d8" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Madre</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> VV</div>       <div><b>Country:</b> Global</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Global</div>     </div>     </div>`)[0];
+                popup_ea69f029e9c4d5589d806e60dcb58298.setContent(html_11240d9439e15fdc36762aa8c11f96d8);
+            
+        
+
+        circle_marker_1dd6ed23d2706ecf53b6c51d0b12103b.bindPopup(popup_ea69f029e9c4d5589d806e60dcb58298)
+        ;
+
+        
+    
+    
+            circle_marker_1dd6ed23d2706ecf53b6c51d0b12103b.bindTooltip(
+                `<div>
+                     Madre (VV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_e6401255e642a9b06841d970c815422f = L.circleMarker(
+                [52.2026, 5.2913],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_327d963b80556374a923f46d087c8f1f);
+        
+    
+        var popup_2e872734cbc1d52cb203827ad4ee9cb7 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_5e9cffee3d3e3a17f0f09b13fcf27b30 = $(`<div id="html_5e9cffee3d3e3a17f0f09b13fcf27b30" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Mama Cash</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> VV</div>       <div><b>Country:</b> Netherlands</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Netherlands</div>     </div>     </div>`)[0];
+                popup_2e872734cbc1d52cb203827ad4ee9cb7.setContent(html_5e9cffee3d3e3a17f0f09b13fcf27b30);
+            
+        
+
+        circle_marker_e6401255e642a9b06841d970c815422f.bindPopup(popup_2e872734cbc1d52cb203827ad4ee9cb7)
+        ;
+
+        
+    
+    
+            circle_marker_e6401255e642a9b06841d970c815422f.bindTooltip(
+                `<div>
+                     Mama Cash (VV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8c2380adb211a39b75e66a3101dc1a47 = L.circleMarker(
+                [38.9772, -77.0369],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_327d963b80556374a923f46d087c8f1f);
+        
+    
+        var popup_e712679526d8bd5ec9c67d7083a64729 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_fa7547f5ec2563517b198a6846c5c56e = $(`<div id="html_fa7547f5ec2563517b198a6846c5c56e" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">MenEngage</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> VV</div>       <div><b>Country:</b> United States</div>       <div><b>City:</b> Washington, DC</div>       <div><b>Mapped as:</b> Washington, DC, United States</div>     </div>     </div>`)[0];
+                popup_e712679526d8bd5ec9c67d7083a64729.setContent(html_fa7547f5ec2563517b198a6846c5c56e);
+            
+        
+
+        circle_marker_8c2380adb211a39b75e66a3101dc1a47.bindPopup(popup_e712679526d8bd5ec9c67d7083a64729)
+        ;
+
+        
+    
+    
+            circle_marker_8c2380adb211a39b75e66a3101dc1a47.bindTooltip(
+                `<div>
+                     MenEngage (VV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c9604b1369bd3dc0f5fc1e95b21301e4 = L.circleMarker(
+                [20.14, 0.0],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_327d963b80556374a923f46d087c8f1f);
+        
+    
+        var popup_76c49da1d1362da3bb64d64e4f4a66a3 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_5be66dd154e804e58bac3d4e66f7c70a = $(`<div id="html_5be66dd154e804e58bac3d4e66f7c70a" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Nobel Women&#x27;s Initative</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> VV</div>       <div><b>Country:</b> Global</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Global</div>     </div>     </div>`)[0];
+                popup_76c49da1d1362da3bb64d64e4f4a66a3.setContent(html_5be66dd154e804e58bac3d4e66f7c70a);
+            
+        
+
+        circle_marker_c9604b1369bd3dc0f5fc1e95b21301e4.bindPopup(popup_76c49da1d1362da3bb64d64e4f4a66a3)
+        ;
+
+        
+    
+    
+            circle_marker_c9604b1369bd3dc0f5fc1e95b21301e4.bindTooltip(
+                `<div>
+                     Nobel Women's Initative (VV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_c3a198176bdc8d8139deb261ebb8f20c = L.circleMarker(
+                [42.0119, 12.5674],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_327d963b80556374a923f46d087c8f1f);
+        
+    
+        var popup_3688723b31c534d6c5b113cf59a3dda0 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_35a95f2b7902646a2c9c28cb8d87cbab = $(`<div id="html_35a95f2b7902646a2c9c28cb8d87cbab" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">RFK Center of Human Rights Italia</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> VV</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Italy</div>     </div>     </div>`)[0];
+                popup_3688723b31c534d6c5b113cf59a3dda0.setContent(html_35a95f2b7902646a2c9c28cb8d87cbab);
+            
+        
+
+        circle_marker_c3a198176bdc8d8139deb261ebb8f20c.bindPopup(popup_3688723b31c534d6c5b113cf59a3dda0)
+        ;
+
+        
+    
+    
+            circle_marker_c3a198176bdc8d8139deb261ebb8f20c.bindTooltip(
+                `<div>
+                     RFK Center of Human Rights Italia (VV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_f579ad61f5e77bd1ee87a4333f2c7704 = L.circleMarker(
+                [20.0, 0.035],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_327d963b80556374a923f46d087c8f1f);
+        
+    
+        var popup_aff56fd504ee1aba2125b3a27a17d4f4 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_cc0c68c06c50ea7c1ae253325aa9d29e = $(`<div id="html_cc0c68c06c50ea7c1ae253325aa9d29e" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">The Elders</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> VV</div>       <div><b>Country:</b> Global</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Global</div>     </div>     </div>`)[0];
+                popup_aff56fd504ee1aba2125b3a27a17d4f4.setContent(html_cc0c68c06c50ea7c1ae253325aa9d29e);
+            
+        
+
+        circle_marker_f579ad61f5e77bd1ee87a4333f2c7704.bindPopup(popup_aff56fd504ee1aba2125b3a27a17d4f4)
+        ;
+
+        
+    
+    
+            circle_marker_f579ad61f5e77bd1ee87a4333f2c7704.bindTooltip(
+                `<div>
+                     The Elders (VV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_4f9c8c77c89acfe9eea4507a6c46cb75 = L.circleMarker(
+                [40.7128, -74.006],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_327d963b80556374a923f46d087c8f1f);
+        
+    
+        var popup_1fddf2942b354814dbb20d5e081d6c1c = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_46de1ba83a590121d694fc5c26b0df55 = $(`<div id="html_46de1ba83a590121d694fc5c26b0df55" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">The Rockefeller Foundation</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> VV</div>       <div><b>Country:</b> United States</div>       <div><b>City:</b> New York City</div>       <div><b>Mapped as:</b> New York City, United States</div>     </div>     </div>`)[0];
+                popup_1fddf2942b354814dbb20d5e081d6c1c.setContent(html_46de1ba83a590121d694fc5c26b0df55);
+            
+        
+
+        circle_marker_4f9c8c77c89acfe9eea4507a6c46cb75.bindPopup(popup_1fddf2942b354814dbb20d5e081d6c1c)
+        ;
+
+        
+    
+    
+            circle_marker_4f9c8c77c89acfe9eea4507a6c46cb75.bindTooltip(
+                `<div>
+                     The Rockefeller Foundation (VV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_8f468948c759286e04a126963a1bdfb3 = L.circleMarker(
+                [34.5199, -105.8701],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_327d963b80556374a923f46d087c8f1f);
+        
+    
+        var popup_8e8ba99b9bda3d4422ab9ac3ad77a762 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_280cded6054faccc32bfe1f5e8c1159d = $(`<div id="html_280cded6054faccc32bfe1f5e8c1159d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Tomorrow&#x27;s Women</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> VV</div>       <div><b>Country:</b> United States</div>       <div><b>City:</b> New Mexico</div>       <div><b>Mapped as:</b> New Mexico, United States</div>     </div>     </div>`)[0];
+                popup_8e8ba99b9bda3d4422ab9ac3ad77a762.setContent(html_280cded6054faccc32bfe1f5e8c1159d);
+            
+        
+
+        circle_marker_8f468948c759286e04a126963a1bdfb3.bindPopup(popup_8e8ba99b9bda3d4422ab9ac3ad77a762)
+        ;
+
+        
+    
+    
+            circle_marker_8f468948c759286e04a126963a1bdfb3.bindTooltip(
+                `<div>
+                     Tomorrow's Women (VV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_22dbc6bb65c9397da49a488a09ff2caf = L.circleMarker(
+                [20.035, 0.035],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_327d963b80556374a923f46d087c8f1f);
+        
+    
+        var popup_00724ba1ed1c4b9fd1c3902640d9f42e = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_032601d8fec04c8bcd3cd5aa7cc2e89f = $(`<div id="html_032601d8fec04c8bcd3cd5aa7cc2e89f" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">UN 100 Women Leaders Network</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> VV</div>       <div><b>Country:</b> Global</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Global</div>     </div>     </div>`)[0];
+                popup_00724ba1ed1c4b9fd1c3902640d9f42e.setContent(html_032601d8fec04c8bcd3cd5aa7cc2e89f);
+            
+        
+
+        circle_marker_22dbc6bb65c9397da49a488a09ff2caf.bindPopup(popup_00724ba1ed1c4b9fd1c3902640d9f42e)
+        ;
+
+        
+    
+    
+            circle_marker_22dbc6bb65c9397da49a488a09ff2caf.bindTooltip(
+                `<div>
+                     UN 100 Women Leaders Network (VV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var circle_marker_311ade4b8c1cea9fac9c81f4f776ddfd = L.circleMarker(
+                [48.2082, 16.3738],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.78, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 2}
+            ).addTo(feature_group_327d963b80556374a923f46d087c8f1f);
+        
+    
+        var popup_b3c0249a21ba778470baea978aa2b17c = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_3062f546828616f962ff1aea232fdb15 = $(`<div id="html_3062f546828616f962ff1aea232fdb15" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Wave</div>       <div><b>Status:</b> Prospective / Source List</div>       <div><b>Origin / Category:</b> VV</div>       <div><b>Country:</b> Austria</div>       <div><b>City:</b> Vienna</div>       <div><b>Mapped as:</b> Vienna, Austria</div>     </div>     </div>`)[0];
+                popup_b3c0249a21ba778470baea978aa2b17c.setContent(html_3062f546828616f962ff1aea232fdb15);
+            
+        
+
+        circle_marker_311ade4b8c1cea9fac9c81f4f776ddfd.bindPopup(popup_b3c0249a21ba778470baea978aa2b17c)
+        ;
+
+        
+    
+    
+            circle_marker_311ade4b8c1cea9fac9c81f4f776ddfd.bindTooltip(
+                `<div>
+                     Wave (VV)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_327d963b80556374a923f46d087c8f1f.addTo(map_e0eaae9337217fc59dba8b2bb4608a0b);
+        
+    
+            var feature_group_579eefaa7afe9afc8565191600f5c392 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_f08f3c237f23290cd17e04ddc188118f = L.marker(
+                [41.8719, 12.6024],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_5ecb3cffe7ca80c871ac7fa207a9426a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c9035646c2ef0f41ee77b1d170dcddae = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_df8326fc681c2edd465f7640a8b926b3 = $(`<div id="html_df8326fc681c2edd465f7640a8b926b3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Italian Network for Peace and Disarmament</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Italy</div>     </div>     </div>`)[0];
+                popup_c9035646c2ef0f41ee77b1d170dcddae.setContent(html_df8326fc681c2edd465f7640a8b926b3);
+            
+        
+
+        marker_f08f3c237f23290cd17e04ddc188118f.bindPopup(popup_c9035646c2ef0f41ee77b1d170dcddae)
+        ;
+
+        
+    
+    
+            marker_f08f3c237f23290cd17e04ddc188118f.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: Italian Network for Peace and Disarmament
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f08f3c237f23290cd17e04ddc188118f.setIcon(icon_5ecb3cffe7ca80c871ac7fa207a9426a);
+            
+    
+            var marker_0b7acad9554ec6c420252889b081ba69 = L.marker(
+                [31.8733, 35.2137],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_00df7cbe2b81caf2995b27a53f9a3339 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_785373b58f3669d6723981c431bf78bb = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_032b94c814510940452ed7b45803cb73 = $(`<div id="html_032b94c814510940452ed7b45803cb73" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">It&#x27;s Time Solidarity Peace Walk</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Israel/Palestine</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Israel/Palestine</div>     </div>     </div>`)[0];
+                popup_785373b58f3669d6723981c431bf78bb.setContent(html_032b94c814510940452ed7b45803cb73);
+            
+        
+
+        marker_0b7acad9554ec6c420252889b081ba69.bindPopup(popup_785373b58f3669d6723981c431bf78bb)
+        ;
+
+        
+    
+    
+            marker_0b7acad9554ec6c420252889b081ba69.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: It's Time Solidarity Peace Walk
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0b7acad9554ec6c420252889b081ba69.setIcon(icon_00df7cbe2b81caf2995b27a53f9a3339);
+            
+    
+            var marker_bd7c0361d116734d5c5bf63dd626357d = L.marker(
+                [60.163199999999996, 18.6435],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_43c5877c9894065258f627b4641604ce = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9a2c9a05a1ae8b92b1c2d550417783c7 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_aa746c24ad7a86df8f8031fb98bf0077 = $(`<div id="html_aa746c24ad7a86df8f8031fb98bf0077" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">B8 of Hope</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Sweden</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Sweden</div>     </div>     </div>`)[0];
+                popup_9a2c9a05a1ae8b92b1c2d550417783c7.setContent(html_aa746c24ad7a86df8f8031fb98bf0077);
+            
+        
+
+        marker_bd7c0361d116734d5c5bf63dd626357d.bindPopup(popup_9a2c9a05a1ae8b92b1c2d550417783c7)
+        ;
+
+        
+    
+    
+            marker_bd7c0361d116734d5c5bf63dd626357d.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: B8 of Hope
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bd7c0361d116734d5c5bf63dd626357d.setIcon(icon_43c5877c9894065258f627b4641604ce);
+            
+    
+            var marker_de6e8d8e0aa63e495e4862e0b8396650 = L.marker(
+                [31.9083, 35.2137],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_a3825b4fbb79b826a678b3d3e34f6999 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8d53a13de24b3e2263f2da1ea4f13ac4 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_e42b46d280d1ac97321dd37a27d6baf1 = $(`<div id="html_e42b46d280d1ac97321dd37a27d6baf1" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">ALLMEP</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Israel/Palestine</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Israel/Palestine</div>     </div>     </div>`)[0];
+                popup_8d53a13de24b3e2263f2da1ea4f13ac4.setContent(html_e42b46d280d1ac97321dd37a27d6baf1);
+            
+        
+
+        marker_de6e8d8e0aa63e495e4862e0b8396650.bindPopup(popup_8d53a13de24b3e2263f2da1ea4f13ac4)
+        ;
+
+        
+    
+    
+            marker_de6e8d8e0aa63e495e4862e0b8396650.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: ALLMEP
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_de6e8d8e0aa63e495e4862e0b8396650.setIcon(icon_a3825b4fbb79b826a678b3d3e34f6999);
+            
+    
+            var marker_df68c8bd93ab77311fb2987aeca6744e = L.marker(
+                [19.4676, -99.1332],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_465ebb89d8e386b257ca9df50f28d142 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9d77476b1f9db0e24644e37939c60599 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_e22dc3ca3390fb70b3e473be6db48273 = $(`<div id="html_e22dc3ca3390fb70b3e473be6db48273" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">International Council of Jewish Women</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Mexico</div>       <div><b>City:</b> Mexico City</div>       <div><b>Mapped as:</b> Mexico City, Mexico</div>     </div>     </div>`)[0];
+                popup_9d77476b1f9db0e24644e37939c60599.setContent(html_e22dc3ca3390fb70b3e473be6db48273);
+            
+        
+
+        marker_df68c8bd93ab77311fb2987aeca6744e.bindPopup(popup_9d77476b1f9db0e24644e37939c60599)
+        ;
+
+        
+    
+    
+            marker_df68c8bd93ab77311fb2987aeca6744e.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: International Council of Jewish Women
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_df68c8bd93ab77311fb2987aeca6744e.setIcon(icon_465ebb89d8e386b257ca9df50f28d142);
+            
+    
+            var marker_624f3ca5c797bffbf04ae7fd1e0b8951 = L.marker(
+                [31.1161, 34.8516],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_9cea30b66a2ed8b47cd3383f207070f9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b9cfde1cf17b025821ea63db0eed4b64 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_757b226354428b3a21ab3f184e5e8fc6 = $(`<div id="html_757b226354428b3a21ab3f184e5e8fc6" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Noa&#x27;s Ark Foundation</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Israel</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Israel</div>     </div>     </div>`)[0];
+                popup_b9cfde1cf17b025821ea63db0eed4b64.setContent(html_757b226354428b3a21ab3f184e5e8fc6);
+            
+        
+
+        marker_624f3ca5c797bffbf04ae7fd1e0b8951.bindPopup(popup_b9cfde1cf17b025821ea63db0eed4b64)
+        ;
+
+        
+    
+    
+            marker_624f3ca5c797bffbf04ae7fd1e0b8951.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: Noa's Ark Foundation
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_624f3ca5c797bffbf04ae7fd1e0b8951.setIcon(icon_9cea30b66a2ed8b47cd3383f207070f9);
+            
+    
+            var marker_61a8fe8da6a9766936b803bd0c6f6b04 = L.marker(
+                [31.1511, 34.8516],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_fa8017687443aa66b396cf7af9e31f73 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_453060e8f51c8acd3fe5d21840a10518 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_0248edf9bedfeb7a7ff3133ea64e0bbd = $(`<div id="html_0248edf9bedfeb7a7ff3133ea64e0bbd" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">UnXeptable</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Israel</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Israel</div>     </div>     </div>`)[0];
+                popup_453060e8f51c8acd3fe5d21840a10518.setContent(html_0248edf9bedfeb7a7ff3133ea64e0bbd);
+            
+        
+
+        marker_61a8fe8da6a9766936b803bd0c6f6b04.bindPopup(popup_453060e8f51c8acd3fe5d21840a10518)
+        ;
+
+        
+    
+    
+            marker_61a8fe8da6a9766936b803bd0c6f6b04.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: UnXeptable
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_61a8fe8da6a9766936b803bd0c6f6b04.setIcon(icon_fa8017687443aa66b396cf7af9e31f73);
+            
+    
+            var marker_817c4b726af2eafea8dd81307ee9da0f = L.marker(
+                [41.90689999999999, 12.6024],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_bbd7b60f650609cc8b863fb242f2280c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_65153ccac82aed648fd6076f6a7b4b21 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_f0997041a273dd95b74c9faae7ee96e3 = $(`<div id="html_f0997041a273dd95b74c9faae7ee96e3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Women International Security Italia</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Italy</div>     </div>     </div>`)[0];
+                popup_65153ccac82aed648fd6076f6a7b4b21.setContent(html_f0997041a273dd95b74c9faae7ee96e3);
+            
+        
+
+        marker_817c4b726af2eafea8dd81307ee9da0f.bindPopup(popup_65153ccac82aed648fd6076f6a7b4b21)
+        ;
+
+        
+    
+    
+            marker_817c4b726af2eafea8dd81307ee9da0f.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: Women International Security Italia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_817c4b726af2eafea8dd81307ee9da0f.setIcon(icon_bbd7b60f650609cc8b863fb242f2280c);
+            
+    
+            var marker_0d0a0982e6c00d8ee28ec901f6ca8443 = L.marker(
+                [41.9419, 12.6024],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_1a34300f706d8be6a151514ebaa726fb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_64fd19cf570638d52b7a86cb346eb814 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_2297cb51f313dbb9d432a2d0f5671404 = $(`<div id="html_2297cb51f313dbb9d432a2d0f5671404" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Libera</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Italy</div>     </div>     </div>`)[0];
+                popup_64fd19cf570638d52b7a86cb346eb814.setContent(html_2297cb51f313dbb9d432a2d0f5671404);
+            
+        
+
+        marker_0d0a0982e6c00d8ee28ec901f6ca8443.bindPopup(popup_64fd19cf570638d52b7a86cb346eb814)
+        ;
+
+        
+    
+    
+            marker_0d0a0982e6c00d8ee28ec901f6ca8443.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: Libera
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0d0a0982e6c00d8ee28ec901f6ca8443.setIcon(icon_1a34300f706d8be6a151514ebaa726fb);
+            
+    
+            var marker_33abe042e7419ca79e7a8d39d231e197 = L.marker(
+                [20.07, 0.035],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_5647381b03107b200844c97b811b512e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_40c9d020168359adb8cf279f61359049 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_abd8b289b5eaf4f0fe0ff757ff325203 = $(`<div id="html_abd8b289b5eaf4f0fe0ff757ff325203" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Women&#x27;s Champions for Change</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Global</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Global</div>     </div>     </div>`)[0];
+                popup_40c9d020168359adb8cf279f61359049.setContent(html_abd8b289b5eaf4f0fe0ff757ff325203);
+            
+        
+
+        marker_33abe042e7419ca79e7a8d39d231e197.bindPopup(popup_40c9d020168359adb8cf279f61359049)
+        ;
+
+        
+    
+    
+            marker_33abe042e7419ca79e7a8d39d231e197.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: Women's Champions for Change
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_33abe042e7419ca79e7a8d39d231e197.setIcon(icon_5647381b03107b200844c97b811b512e);
+            
+    
+            var marker_52332d4c21a275bf2f8ef02c28285b3d = L.marker(
+                [41.97689999999999, 12.6024],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_08bae1f9541238f8cafdd67a8dc8a661 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_258d2f460dc7931606c08b8de4d186e8 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_086ad2e31b4b7703c886dd4a86d3445c = $(`<div id="html_086ad2e31b4b7703c886dd4a86d3445c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Rondine</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Italy</div>     </div>     </div>`)[0];
+                popup_258d2f460dc7931606c08b8de4d186e8.setContent(html_086ad2e31b4b7703c886dd4a86d3445c);
+            
+        
+
+        marker_52332d4c21a275bf2f8ef02c28285b3d.bindPopup(popup_258d2f460dc7931606c08b8de4d186e8)
+        ;
+
+        
+    
+    
+            marker_52332d4c21a275bf2f8ef02c28285b3d.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: Rondine
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_52332d4c21a275bf2f8ef02c28285b3d.setIcon(icon_08bae1f9541238f8cafdd67a8dc8a661);
+            
+    
+            var marker_f50efe00645044c5bb06c0d626b4a5d9 = L.marker(
+                [40.7478, -74.006],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_be9a7f322872d6a93be91e09dd47b784 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5b417050e6a71915a236a0c063678ec2 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_9071e844c7c43e1fe5ce4a63ea3cb52b = $(`<div id="html_9071e844c7c43e1fe5ce4a63ea3cb52b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Coalition for Women in Journalism</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> United States</div>       <div><b>City:</b> New York City</div>       <div><b>Mapped as:</b> New York City, United States</div>     </div>     </div>`)[0];
+                popup_5b417050e6a71915a236a0c063678ec2.setContent(html_9071e844c7c43e1fe5ce4a63ea3cb52b);
+            
+        
+
+        marker_f50efe00645044c5bb06c0d626b4a5d9.bindPopup(popup_5b417050e6a71915a236a0c063678ec2)
+        ;
+
+        
+    
+    
+            marker_f50efe00645044c5bb06c0d626b4a5d9.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: Coalition for Women in Journalism
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f50efe00645044c5bb06c0d626b4a5d9.setIcon(icon_be9a7f322872d6a93be91e09dd47b784);
+            
+    
+            var marker_72468e1c33113492a736cf74a7872627 = L.marker(
+                [42.0119, 12.6024],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_1cbe0f7b332e35cbc34ac1df11918e97 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d6083e10360c0887648df19cedc307af = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_1e60612b2dd7ed0e760b50f088627b1c = $(`<div id="html_1e60612b2dd7ed0e760b50f088627b1c" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Gariwo</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Italy</div>     </div>     </div>`)[0];
+                popup_d6083e10360c0887648df19cedc307af.setContent(html_1e60612b2dd7ed0e760b50f088627b1c);
+            
+        
+
+        marker_72468e1c33113492a736cf74a7872627.bindPopup(popup_d6083e10360c0887648df19cedc307af)
+        ;
+
+        
+    
+    
+            marker_72468e1c33113492a736cf74a7872627.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: Gariwo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_72468e1c33113492a736cf74a7872627.setIcon(icon_1cbe0f7b332e35cbc34ac1df11918e97);
+            
+    
+            var marker_47b115be4b6d8efcc0a65754740b8f0f = L.marker(
+                [41.8719, 12.6374],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_f1b304afd0baad23c598ff687de0ae0e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8b8e17adddba03c08593e6a7e2f422d9 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_bddd7e701fb62e59909a807515ed6190 = $(`<div id="html_bddd7e701fb62e59909a807515ed6190" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Sinisra per Israeli Due Popoli Due Stati</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Italy</div>     </div>     </div>`)[0];
+                popup_8b8e17adddba03c08593e6a7e2f422d9.setContent(html_bddd7e701fb62e59909a807515ed6190);
+            
+        
+
+        marker_47b115be4b6d8efcc0a65754740b8f0f.bindPopup(popup_8b8e17adddba03c08593e6a7e2f422d9)
+        ;
+
+        
+    
+    
+            marker_47b115be4b6d8efcc0a65754740b8f0f.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: Sinisra per Israeli Due Popoli Due Stati
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_47b115be4b6d8efcc0a65754740b8f0f.setIcon(icon_f1b304afd0baad23c598ff687de0ae0e);
+            
+    
+            var marker_64abe4b817aff27dfa7d654ef0510668 = L.marker(
+                [41.90689999999999, 12.6374],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_68af7afd8d3d84c7dabf3f274607a6b6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_039d08ef8dcdf5cda62c11f7cc45715b = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_3524908def2e58005b6de7f0173c4255 = $(`<div id="html_3524908def2e58005b6de7f0173c4255" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Rut Fondazione</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Italy</div>     </div>     </div>`)[0];
+                popup_039d08ef8dcdf5cda62c11f7cc45715b.setContent(html_3524908def2e58005b6de7f0173c4255);
+            
+        
+
+        marker_64abe4b817aff27dfa7d654ef0510668.bindPopup(popup_039d08ef8dcdf5cda62c11f7cc45715b)
+        ;
+
+        
+    
+    
+            marker_64abe4b817aff27dfa7d654ef0510668.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: Rut Fondazione
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_64abe4b817aff27dfa7d654ef0510668.setIcon(icon_68af7afd8d3d84c7dabf3f274607a6b6);
+            
+    
+            var marker_1a38f6e62040e2f602442428dd432e56 = L.marker(
+                [41.9419, 12.6374],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_03a31bffb281b467c197b7f46feb3630 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_88d7703186eb1fcc049cb1698e4dfadb = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_9260a555610ecbcac37db3363d1e90d3 = $(`<div id="html_9260a555610ecbcac37db3363d1e90d3" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">federazione italiana ebraismo progressivo</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Italy</div>     </div>     </div>`)[0];
+                popup_88d7703186eb1fcc049cb1698e4dfadb.setContent(html_9260a555610ecbcac37db3363d1e90d3);
+            
+        
+
+        marker_1a38f6e62040e2f602442428dd432e56.bindPopup(popup_88d7703186eb1fcc049cb1698e4dfadb)
+        ;
+
+        
+    
+    
+            marker_1a38f6e62040e2f602442428dd432e56.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: federazione italiana ebraismo progressivo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1a38f6e62040e2f602442428dd432e56.setIcon(icon_03a31bffb281b467c197b7f46feb3630);
+            
+    
+            var marker_9534d7df8eadf28168cc481ef83aa7f7 = L.marker(
+                [41.937799999999996, 12.5314],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_23b5adc4471d381012051e8a8313f972 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d841370f69de7c12d466622e162b292d = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_ecb5ea787c7a1347d8d788d5e48a564b = $(`<div id="html_ecb5ea787c7a1347d8d788d5e48a564b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Beth Hillel Roma</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Rome</div>       <div><b>Mapped as:</b> Rome, Italy</div>     </div>     </div>`)[0];
+                popup_d841370f69de7c12d466622e162b292d.setContent(html_ecb5ea787c7a1347d8d788d5e48a564b);
+            
+        
+
+        marker_9534d7df8eadf28168cc481ef83aa7f7.bindPopup(popup_d841370f69de7c12d466622e162b292d)
+        ;
+
+        
+    
+    
+            marker_9534d7df8eadf28168cc481ef83aa7f7.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: Beth Hillel Roma
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9534d7df8eadf28168cc481ef83aa7f7.setIcon(icon_23b5adc4471d381012051e8a8313f972);
+            
+    
+            var marker_b61c1e7381cbca88649472d5978da50b = L.marker(
+                [41.97689999999999, 12.6374],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_e9ca70dab54cf58af113019a9b87b23d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_8653e4f6c28692205e41046b1cdeaece = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_8f38bfe0e4f2d7902e463b0422a01770 = $(`<div id="html_8f38bfe0e4f2d7902e463b0422a01770" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Women Federation for World Peace Italia</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Italy</div>     </div>     </div>`)[0];
+                popup_8653e4f6c28692205e41046b1cdeaece.setContent(html_8f38bfe0e4f2d7902e463b0422a01770);
+            
+        
+
+        marker_b61c1e7381cbca88649472d5978da50b.bindPopup(popup_8653e4f6c28692205e41046b1cdeaece)
+        ;
+
+        
+    
+    
+            marker_b61c1e7381cbca88649472d5978da50b.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: Women Federation for World Peace Italia
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b61c1e7381cbca88649472d5978da50b.setIcon(icon_e9ca70dab54cf58af113019a9b87b23d);
+            
+    
+            var marker_dd7ab7a3c875cfaeb31d79aca89f0215 = L.marker(
+                [51.542399999999994, -0.1278],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_5cfa934b022490fc64e1d0f5269a5f51 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9cf4476b7ca0ddb563aafa52d0efb80d = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_8f2fddd16c8097598fb063c69ccd9e8b = $(`<div id="html_8f2fddd16c8097598fb063c69ccd9e8b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Clowns without Borders UK</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> United Kingdom</div>       <div><b>City:</b> London</div>       <div><b>Mapped as:</b> London, United Kingdom</div>     </div>     </div>`)[0];
+                popup_9cf4476b7ca0ddb563aafa52d0efb80d.setContent(html_8f2fddd16c8097598fb063c69ccd9e8b);
+            
+        
+
+        marker_dd7ab7a3c875cfaeb31d79aca89f0215.bindPopup(popup_9cf4476b7ca0ddb563aafa52d0efb80d)
+        ;
+
+        
+    
+    
+            marker_dd7ab7a3c875cfaeb31d79aca89f0215.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: Clowns without Borders UK
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_dd7ab7a3c875cfaeb31d79aca89f0215.setIcon(icon_5cfa934b022490fc64e1d0f5269a5f51);
+            
+    
+            var marker_82baa221bc1f21f9c15108d226a0b7c4 = L.marker(
+                [45.569199999999995, 9.19],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_d73dda7bdab00272a92aecda12edcec4 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3d0261a1da81a5b4f2d3b2e13afc85d4 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_5b17debcebcc7cf7b5ca6d38f7f9ff82 = $(`<div id="html_5b17debcebcc7cf7b5ca6d38f7f9ff82" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">the National Association of Former Nazi Camp Deportees</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Milan</div>       <div><b>Mapped as:</b> Milan, Italy</div>     </div>     </div>`)[0];
+                popup_3d0261a1da81a5b4f2d3b2e13afc85d4.setContent(html_5b17debcebcc7cf7b5ca6d38f7f9ff82);
+            
+        
+
+        marker_82baa221bc1f21f9c15108d226a0b7c4.bindPopup(popup_3d0261a1da81a5b4f2d3b2e13afc85d4)
+        ;
+
+        
+    
+    
+            marker_82baa221bc1f21f9c15108d226a0b7c4.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: the National Association of Former Nazi Camp Deportees
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_82baa221bc1f21f9c15108d226a0b7c4.setIcon(icon_d73dda7bdab00272a92aecda12edcec4);
+            
+    
+            var marker_fb3060969901cb4bdeca7d4825eeff81 = L.marker(
+                [42.0119, 12.6374],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_658fcd9a0fee111f8bf3278450d82215 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f1e05733ac5fc9bbfb9760aed016412a = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_eced8d52be74502d891b97a70cfd5bd8 = $(`<div id="html_eced8d52be74502d891b97a70cfd5bd8" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Union of the Methodist and Waldensian Churches</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Italy</div>     </div>     </div>`)[0];
+                popup_f1e05733ac5fc9bbfb9760aed016412a.setContent(html_eced8d52be74502d891b97a70cfd5bd8);
+            
+        
+
+        marker_fb3060969901cb4bdeca7d4825eeff81.bindPopup(popup_f1e05733ac5fc9bbfb9760aed016412a)
+        ;
+
+        
+    
+    
+            marker_fb3060969901cb4bdeca7d4825eeff81.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: Union of the Methodist and Waldensian Churches
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fb3060969901cb4bdeca7d4825eeff81.setIcon(icon_658fcd9a0fee111f8bf3278450d82215);
+            
+    
+            var marker_8d19ee7fc9e72dfb51f20a229c816dda = L.marker(
+                [41.8719, 12.6724],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_1c5a608bce58f414c110a00a74c705be = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_616e62e3af7a6d08d5a3b8ce2b896c1e = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_d75e2466d44b87b0f9d31ef90341381b = $(`<div id="html_d75e2466d44b87b0f9d31ef90341381b" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Evangelic Women Federation in Italy</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Not listed</div>       <div><b>Mapped as:</b> Italy</div>     </div>     </div>`)[0];
+                popup_616e62e3af7a6d08d5a3b8ce2b896c1e.setContent(html_d75e2466d44b87b0f9d31ef90341381b);
+            
+        
+
+        marker_8d19ee7fc9e72dfb51f20a229c816dda.bindPopup(popup_616e62e3af7a6d08d5a3b8ce2b896c1e)
+        ;
+
+        
+    
+    
+            marker_8d19ee7fc9e72dfb51f20a229c816dda.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: Evangelic Women Federation in Italy
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8d19ee7fc9e72dfb51f20a229c816dda.setIcon(icon_1c5a608bce58f414c110a00a74c705be);
+            
+    
+            var marker_3e71a57d53b20908c4668c170e86d0c1 = L.marker(
+                [41.9728, 12.5314],
+                {
+}
+            ).addTo(feature_group_579eefaa7afe9afc8565191600f5c392);
+        
+    
+            var icon_c483bcbe8d6a7ecb290e4adfd3b7cb98 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "star",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_91a5e5b55ef6494eb07a9aa3067bbd84 = L.popup({
+  "maxWidth": 330,
+});
+
+        
+            
+                var html_42463535c08f3eb6a968f963989ba29d = $(`<div id="html_42463535c08f3eb6a968f963989ba29d" style="width: 100.0%; height: 100.0%;">     <div style="font-family: Arial, sans-serif; width: 285px;">       <div style="font-size: 15px; font-weight: 700; margin-bottom: 6px;">Rome Marathon</div>       <div><b>Status:</b> Confirmed Partner</div>       <div><b>Origin / Category:</b> Confirmed Partner</div>       <div><b>Country:</b> Italy</div>       <div><b>City:</b> Rome</div>       <div><b>Mapped as:</b> Rome, Italy</div>     </div>     </div>`)[0];
+                popup_91a5e5b55ef6494eb07a9aa3067bbd84.setContent(html_42463535c08f3eb6a968f963989ba29d);
+            
+        
+
+        marker_3e71a57d53b20908c4668c170e86d0c1.bindPopup(popup_91a5e5b55ef6494eb07a9aa3067bbd84)
+        ;
+
+        
+    
+    
+            marker_3e71a57d53b20908c4668c170e86d0c1.bindTooltip(
+                `<div>
+                     CONFIRMED PARTNER: Rome Marathon
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3e71a57d53b20908c4668c170e86d0c1.setIcon(icon_c483bcbe8d6a7ecb290e4adfd3b7cb98);
+            
+    
+            feature_group_579eefaa7afe9afc8565191600f5c392.addTo(map_e0eaae9337217fc59dba8b2bb4608a0b);
+        
+    
+            var layer_control_cd92ec9ca60e08b30fc43eb4ed43f9b1_layers = {
+                base_layers : {
+                    "cartodbpositron" : tile_layer_a074a371e011d4bcc26cb1bdb8ab4e56,
+                },
+                overlays :  {
+                    "ABBY source list \u2014 blue" : feature_group_580e15f293b1726964623e67e9706a43,
+                    "MC source list \u2014 green" : feature_group_bbc92848ccc2ab29be1586ad58a4305d,
+                    "VV source list \u2014 red" : feature_group_327d963b80556374a923f46d087c8f1f,
+                    "CONFIRMED PARTNERS \u2014 purple stars" : feature_group_579eefaa7afe9afc8565191600f5c392,
+                },
+            };
+            let layer_control_cd92ec9ca60e08b30fc43eb4ed43f9b1 = L.control.layers(
+                layer_control_cd92ec9ca60e08b30fc43eb4ed43f9b1_layers.base_layers,
+                layer_control_cd92ec9ca60e08b30fc43eb4ed43f9b1_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_e0eaae9337217fc59dba8b2bb4608a0b);
+
+        
+</script>
+</html>
